@@ -1,5 +1,5 @@
 # Penguin Diner
-Un joc de tip "time-management" plin de viteză, dezvoltat în C++ ca proiect pentru materia de Programare Orientată pe Obiect (POO).
+Un joc de tip "time-management" plin de viteză, dezvoltat în C++.
 
 ## Conceptul și Lumea Jocului
 Proiectul este un simulator de restaurant antarctic, plasând jucătorul în rolul unui pinguin chelner. Într-o luptă contra cronometru, jucătorul trebuie să gestioneze un local aglomerat, unde clienții sosesc în valuri și au o răbdare limitată.
