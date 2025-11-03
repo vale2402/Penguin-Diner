@@ -18,7 +18,7 @@ public:
           timp_preparare(timp_preparare) {
     }
 
-    [[nodiscard]] std::string getnume_produs() const {
+    [[nodiscard]] const std::string& getnume_produs() const {
         return nume_produs;
     }
 
@@ -100,7 +100,7 @@ public:
         return this->produs_meniu.getpret();
     }
 
-    [[nodiscard]] Produs_Meniu getprodus_meniu() const {
+    [[nodiscard]] const Produs_Meniu& getprodus_meniu() const {
         return produs_meniu;
     }
 
