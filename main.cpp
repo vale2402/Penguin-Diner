@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream> // Pentru citire fisier
+#include <fstream>
 #include <vector>
 #include <string>
 
@@ -36,7 +36,13 @@ int main() {
         vector<Produs_Meniu> lista_meniu;
         citeste_meniu(lista_meniu);
 
-        Restaurant penguin_diner(3);
+        Cronometru_Rabdare timer_check(5.0f, 1.0f);
+        Comanda comanda_check(lista_meniu[0], 99);
+        if (!timer_check.expirat()) {
+            cout << "[System Check] Timer functional. Masa test: " << comanda_check.getnr_masa() << "\n";
+        }
+
+        Restaurant penguin_diner(4);
 
         cout << "\n- [1] Soseste Primul Client (Student) -\n";
         Client_Pinguin* student = new Pinguin_Student(

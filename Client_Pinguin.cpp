@@ -86,6 +86,6 @@ void Client_Pinguin::afiseaza_detalii(std::ostream& os) const {
 std::ostream& operator<<(std::ostream& os, const Client_Pinguin& client) {
     os << "-\n";
     client.afiseaza_detalii(os);
-    os << "\n-\n";
+    os << "\n-";
     return os;
 }

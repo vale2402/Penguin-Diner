@@ -22,10 +22,6 @@ void Pinguin_Student::primeste_reducere() const {
               << "  Pret initial: " << pret_vechi << " RON -> Pret cu reducere: " << pret_nou << " RON.\n";
 }
 
-void Pinguin_Student::do_reactioneaza_la_timp(float timp_scurs) {
-    Client_Pinguin::do_reactioneaza_la_timp(timp_scurs);
-}
-
 void Pinguin_Student::afiseaza_detalii(std::ostream& os) const {
     os << "[Student] ";
     Client_Pinguin::afiseaza_detalii(os);
@@ -77,10 +73,6 @@ Pinguin_Bogat::Pinguin_Bogat(const Cronometru_Rabdare& timer, const Comanda& cmd
 
 Client_Pinguin* Pinguin_Bogat::clone() const {
     return new Pinguin_Bogat(*this);
-}
-
-void Pinguin_Bogat::do_reactioneaza_la_timp(float timp_scurs) {
-    Client_Pinguin::do_reactioneaza_la_timp(timp_scurs);
 }
 
 void Pinguin_Bogat::lasa_bacsis_extra() const {

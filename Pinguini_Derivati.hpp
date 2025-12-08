@@ -14,7 +14,6 @@ public:
     void primeste_reducere() const;
 
 protected:
-    void do_reactioneaza_la_timp(float timp_scurs) override;
     void afiseaza_detalii(std::ostream& os) const override;
 };
 
@@ -53,7 +52,6 @@ public:
     void lasa_bacsis_extra() const;
 
 protected:
-    void do_reactioneaza_la_timp(float timp_scurs) override;
     void afiseaza_detalii(std::ostream& os) const override;
 };
 
