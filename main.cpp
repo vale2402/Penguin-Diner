@@ -48,9 +48,8 @@ int main() {
             cout << " Timer functional. Masa test: " << comanda_check.getnr_masa() << "\n";
         }
 
-        if (!lista_meniu.empty()) {
-            cout << lista_meniu[0].gettimp_preparare() << " " << lista_meniu[0].pret_cu_bacsis(0.1f) << "\n";
-        }
+        cout << "[System Check] Produs test: " << lista_meniu[0].gettimp_preparare()
+             << "s, Pret+Tip: " << lista_meniu[0].pret_cu_bacsis(0.1f) << "\n";
 
         Restaurant dummy_rest(1);
         dummy_rest.aseaza_la_masa(0, new Pinguin_Student(timer_check, Comanda(lista_meniu[0], 99)));
