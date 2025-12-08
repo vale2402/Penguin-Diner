@@ -49,7 +49,6 @@ Client_Pinguin& Client_Pinguin::operator=(const Client_Pinguin& other) {
 
 //Non-Virtual Interface
 void Client_Pinguin::actualizeaza_stare(float timp_scurs) {
-    // Logica comuna: daca e suparat sau servit, nu facem nimic
     if (plecat_suparat || comanda_client.getstare_comanda()) {
         return;
     }

@@ -83,12 +83,11 @@ void Restaurant::serveste_client(int index) const {
     if (c->a_plecat_suparat()) {
         throw Eroare_Actiune_Interzisa("Client Suparat");
     }
-
     c->esteServit(20.0f, 1.0f);
 }
 
-void Restaurant::aplica_promotie_studenti() {
-    std::cout << "\n[EVENT] Oferta Flash: 10% Reducere pentru toti studentii din restaurant!\n";
+void Restaurant::aplica_promotie_studenti() const {
+    std::cout << "[Eveniment] Oferta: 10% Reducere pentru toti studentii din restaurant!\n";
 
     bool gasit = false;
     for (auto* client : mese) {
@@ -101,24 +100,22 @@ void Restaurant::aplica_promotie_studenti() {
     }
 
     if (!gasit) {
-        std::cout << " -> Nu sunt studenti in restaurant momentan.\n";
+        std::cout << " Nu sunt studenti in restaurant momentan.\n";
     }
     std::cout << "\n";
 }
 
 //Afiseaza starea restaurantului
 std::ostream& operator<<(std::ostream& os, const Restaurant& restaurant) {
-    os << "RESTAURANT PENGUIN DINER\n";
     os << "Capacitate: " << restaurant.mese.size() << "/" << restaurant.capacitate_maxima << "\n";
     os << "Clienti la mese:\n";
     if (restaurant.mese.empty()) {
         os << "  (Gol)\n";
     } else {
         for (const auto* client : restaurant.mese) {
-            os << *client << "\n";
+            os << *client;
         }
     }
-    os << "--\n";
     return os;
 }
 

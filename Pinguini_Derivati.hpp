@@ -11,7 +11,7 @@ public:
 
     [[nodiscard]] Client_Pinguin* clone() const override;
 
-    void primeste_reducere();
+    void primeste_reducere() const;
 
 protected:
     void do_reactioneaza_la_timp(float timp_scurs) override;
@@ -37,6 +37,20 @@ public:
     Pinguin_Influencer(const Cronometru_Rabdare& timer, const Comanda& cmd);
 
     [[nodiscard]] Client_Pinguin* clone() const override;
+
+protected:
+    void do_reactioneaza_la_timp(float timp_scurs) override;
+    void afiseaza_detalii(std::ostream& os) const override;
+};
+
+// 3.Pinguinul Bogat (Normal, dar plateste mai mult)
+class Pinguin_Bogat : public Client_Pinguin {
+public:
+    Pinguin_Bogat(const Cronometru_Rabdare& timer, const Comanda& cmd);
+
+    [[nodiscard]] Client_Pinguin* clone() const override;
+
+    void lasa_bacsis_extra() const;
 
 protected:
     void do_reactioneaza_la_timp(float timp_scurs) override;

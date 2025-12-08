@@ -35,7 +35,7 @@ public:
 
     void serveste_client(int index) const;
 
-    void aplica_promotie_studenti();
+    void aplica_promotie_studenti() const;
 
     friend std::ostream& operator<<(std::ostream& os, const Restaurant& restaurant);
 };

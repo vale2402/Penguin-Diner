@@ -36,9 +36,9 @@ int main() {
         vector<Produs_Meniu> lista_meniu;
         citeste_meniu(lista_meniu);
 
-        Restaurant penguin_diner(2);
+        Restaurant penguin_diner(3);
 
-        cout << "- [1] Soseste Primul Client (Student) -\n";
+        cout << "\n- [1] Soseste Primul Client (Student) -\n";
         Client_Pinguin* student = new Pinguin_Student(
             Cronometru_Rabdare(30.0f, 1.0f),
             Comanda(lista_meniu[0], 1)
@@ -60,24 +60,35 @@ int main() {
         penguin_diner.aplica_promotie_studenti();
 
 
-        cout << ">>> Trec 5 secunde... <<<\n";
+        cout << "Dupa 5 secunde... \n";
         penguin_diner.simuleaza_tura(5.0f);
         cout << penguin_diner << endl;
 
 
-        cout << "- [4] Soseste Al Treilea Client (Influencer) -\n";
+        cout << "\n- [4] Soseste Al Treilea Client (Influencer) -\n";
         Client_Pinguin* influencer = new Pinguin_Influencer(
             Cronometru_Rabdare(60.0f, 1.0f),
             Comanda(lista_meniu[2], 3)
         );
 
-        cout << "-> Incercam sa asezam Influencerul la masa\n";
+        cout << " Incercam sa asezam Influencerul la masa\n";
         penguin_diner.primeste_client(influencer);
+        cout << " Influencerul a primit loc la masa.\n";
+
+        cout << "\n- [In plus] Soseste Pinguinul Bogat (Al 4-lea) -\n";
+        auto* bogatas = new Pinguin_Bogat(
+            Cronometru_Rabdare(40.0f, 1.0f),
+            Comanda(lista_meniu[0], 1)
+        );
+        bogatas->lasa_bacsis_extra();
+
+        cout << " Incercam sa asezam Bogatasul la masa\n";
+        penguin_diner.primeste_client(bogatas);
 
     }
     catch (const Eroare_Restaurant_Plin& e) {
-        cerr << "\n[!] EXCEPTIE DE JOC PRINSA: " << e.what() << "\n";
-        cerr << "-> Clientul a fost refuzat, memoria a fost curatata.\n";
+        cerr << "\n[!] Exceptie de joc: " << e.what() << "\n";
+        cerr << " Clientul a fost refuzat, memoria a fost curatata.\n";
     }
     catch (const exception& e) {
         cerr << "\n[!] Alta eroare critica: " << e.what() << "\n";
