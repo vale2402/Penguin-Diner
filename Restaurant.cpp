@@ -91,9 +91,7 @@ void Restaurant::aplica_promotie_studenti() const {
 
     bool gasit = false;
     for (auto* client : mese) {
-        auto* student = dynamic_cast<Pinguin_Student*>(client);
-
-        if (student != nullptr) {
+        if (const auto* student = dynamic_cast<Pinguin_Student*>(client); student != nullptr) {
             student->primeste_reducere();
             gasit = true;
         }

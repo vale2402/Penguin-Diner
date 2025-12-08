@@ -5,7 +5,7 @@
 
 
 // 1.Pinguinul Student
-class Pinguin_Student : public Client_Pinguin {
+class Pinguin_Student final : public Client_Pinguin {
 public:
     Pinguin_Student(const Cronometru_Rabdare& timer, const Comanda& cmd);
 
@@ -19,7 +19,7 @@ protected:
 
 
 // 2.Pinguinul Afacerist (Grabit)
-class Pinguin_Afacerist : public Client_Pinguin {
+class Pinguin_Afacerist final : public Client_Pinguin {
 public:
     Pinguin_Afacerist(const Cronometru_Rabdare& timer, const Comanda& cmd);
 
@@ -31,7 +31,7 @@ protected:
 };
 
 // 3.Pinguinul Influencer (Lent)
-class Pinguin_Influencer : public Client_Pinguin {
+class Pinguin_Influencer final : public Client_Pinguin {
 public:
     Pinguin_Influencer(const Cronometru_Rabdare& timer, const Comanda& cmd);
 
@@ -43,7 +43,7 @@ protected:
 };
 
 // 3.Pinguinul Bogat (Normal, dar plateste mai mult)
-class Pinguin_Bogat : public Client_Pinguin {
+class Pinguin_Bogat final : public Client_Pinguin {
 public:
     Pinguin_Bogat(const Cronometru_Rabdare& timer, const Comanda& cmd);
 

@@ -38,9 +38,19 @@ int main() {
 
         Cronometru_Rabdare timer_check(5.0f, 1.0f);
         Comanda comanda_check(lista_meniu[0], 99);
+
+        timer_check.adauga_rabdare(2.0f);
         if (!timer_check.expirat()) {
-            cout << "[System Check] Timer functional. Masa test: " << comanda_check.getnr_masa() << "\n";
+            cout << " Timer functional. Masa test: " << comanda_check.getnr_masa() << "\n";
         }
+
+        if (!lista_meniu.empty()) {
+            cout << lista_meniu[0].gettimp_preparare() << " " << lista_meniu[0].pret_cu_bacsis(0.1f) << "\n";
+        }
+
+        Restaurant dummy_rest(1);
+        dummy_rest.aseaza_la_masa(0, new Pinguin_Student(timer_check, Comanda(lista_meniu[0], 99)));
+        try { dummy_rest.serveste_client(0); } catch(...) {}
 
         Restaurant penguin_diner(4);
 
