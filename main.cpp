@@ -36,6 +36,10 @@ int main() {
         vector<Produs_Meniu> lista_meniu;
         citeste_meniu(lista_meniu);
 
+        if (lista_meniu.size() < 3) {
+            throw runtime_error("Eroare critica: Meniul citit este gol sau incomplet!");
+        }
+
         Cronometru_Rabdare timer_check(5.0f, 1.0f);
         Comanda comanda_check(lista_meniu[0], 99);
 
