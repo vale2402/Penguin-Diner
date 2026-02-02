@@ -8,3 +8,4 @@ Gameplay-ul se concentrează pe un ciclu de servire rapid și eficient. Jucător
 
 Eșecul de a servi un client înainte ca bara sa de răbdare să se golească duce la un client nemulțumit și la pierderea de puncte. Scopul este de a supraviețui zilei de lucru, acumulând un scor cât mai mare, care este reinvestit în upgrade-uri pentru a face față haosului crescând din zilele următoare.
 
+![img.png](img.png)

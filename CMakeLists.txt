@@ -19,76 +19,75 @@ include(cmake/Options.cmake)
 include(cmake/CompilerFlags.cmake)
 include(cmake/CopyHelper.cmake)
 
-###############################################################################
 
-# external dependencies with FetchContent
-# include(FetchContent)
-#
-# set(FETCHCONTENT_QUIET OFF)
-# set(FETCHCONTENT_UPDATES_DISCONNECTED ON)
-#
-# NOTE: Also update env vars used for caching in
-#         - .github/actions/configure-cmake/action.yml
-#         - .github/workflows/cmake.yml
-# FetchContent_Declare(
-#         SomeLib
-#         GIT_REPOSITORY https://github.com/<SomeUser>/<SomeLib>.git
-#         GIT_TAG        <some_git_hash> # <which tag/branch @ <some_date>>
-#         GIT_SHALLOW    1  # works only with branches or tags, not with arbitrary commit hashes
-# )
-#
-# FetchContent_MakeAvailable(SomeLib)
 
-###############################################################################
+include_directories(include)
 
-# external dependencies with find_package
 
-# find_package(Threads REQUIRED)
+include(FetchContent)
 
-###############################################################################
+set(FETCHCONTENT_QUIET OFF)
+set(FETCHCONTENT_UPDATES_DISCONNECTED ON)
 
-# NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
-add_executable(${MAIN_EXECUTABLE_NAME}
-    main.cpp
-        Produs_Meniu.cpp
-        Produs_Meniu.hpp
-        Cronometru_Rabdare.cpp
-        Cronometru_Rabdare.hpp
-        Comanda.cpp
-        Comanda.hpp
-        Client_Pinguin.cpp
-        Client_Pinguin.hpp
-        Pinguini_Derivati.cpp
-        Pinguini_Derivati.hpp
-        Restaurant.cpp
-        Restaurant.hpp
-        Exceptii.hpp
+
+FetchContent_Declare(
+        sfml
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG        2.6.1
 )
 
-# NOTE: Add all defined targets (e.g. executables, libraries, etc. )
-# NOTE: RUN_SANITIZERS is optional, if it's not present it will default to true
+FetchContent_MakeAvailable(sfml)
+
+
+add_executable(${MAIN_EXECUTABLE_NAME}
+        main.cpp
+        src/Produs_Meniu.cpp
+        header/Produs_Meniu.hpp
+        src/Cronometru_Rabdare.cpp
+        header/Cronometru_Rabdare.hpp
+        src/Comanda.cpp
+        header/Comanda.hpp
+        src/Client_Pinguin.cpp
+        header/Client_Pinguin.hpp
+        src/Pinguini_Derivati.cpp
+        header/Pinguini_Derivati.hpp
+        src/Restaurant.cpp
+        header/Restaurant.hpp
+        header/Exceptii.hpp
+        include/json.hpp
+        header/AssetManager.hpp
+        header/Utils.hpp
+        src/ConfigManager.cpp
+        header/ConfigManager.hpp
+        src/PenguinFactory.cpp
+        header/PenguinFactory.hpp
+        src/Masa.cpp
+        header/Masa.hpp
+        src/Joc.cpp
+        header/Joc.hpp
+)
+
+
 set_compiler_flags(RUN_SANITIZERS TRUE TARGET_NAMES ${MAIN_EXECUTABLE_NAME})
-# set_compiler_flags(TARGET_NAMES ${MAIN_EXECUTABLE_NAME} ${FOO} ${BAR})
-# where ${FOO} and ${BAR} represent additional executables or libraries
-# you want to compile with the set compiler flags
 
-###############################################################################
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PRIVATE sfml-graphics sfml-window sfml-system)
 
-# use SYSTEM so cppcheck and clang-tidy do not report warnings from these directories
-# target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ext/<SomeHppLib>/include)
-# target_include_directories(${MAIN_EXECUTABLE_NAME} SYSTEM PRIVATE ${<SomeLib>_SOURCE_DIR}/include)
-# target_link_directories(${MAIN_EXECUTABLE_NAME} PRIVATE ${<SomeLib>_BINARY_DIR}/lib)
-# target_link_libraries(${MAIN_EXECUTABLE_NAME} <SomeLib>)
 
-###############################################################################
-
-# copy binaries to "bin" folder; these are uploaded as artifacts on each release
-# DESTINATION_DIR is set as "bin" in cmake/Options.cmake:6
 install(TARGETS ${MAIN_EXECUTABLE_NAME} DESTINATION ${DESTINATION_DIR})
 if(APPLE)
     install(FILES launcher.command DESTINATION ${DESTINATION_DIR})
 endif()
 
-copy_files(FILES tastatura.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
-# copy_files(FILES tastatura.txt config.json DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
-# copy_files(DIRECTORY images sounds COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+copy_files(FILES tastatura.txt meniu.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
+
+
+
+if(WIN32)
+    add_custom_command(TARGET ${MAIN_EXECUTABLE_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            $<TARGET_FILE:sfml-graphics>
+            $<TARGET_FILE:sfml-window>
+            $<TARGET_FILE:sfml-system>
+            $<TARGET_FILE_DIR:${MAIN_EXECUTABLE_NAME}>
+    )
+endif()
