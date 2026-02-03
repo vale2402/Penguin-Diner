@@ -74,7 +74,7 @@ public:
      *
      * @param timp_scurs Time elapsed in seconds
      */
-    void simuleaza_tura(float timp_scurs) const;
+    // void simuleaza_tura(float timp_scurs) const;
 
     /**
      * @brief Seats a customer at a specific table index

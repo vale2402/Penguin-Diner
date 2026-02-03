@@ -540,7 +540,7 @@ void Joc::render() {
         }
     }
 
-    for (auto &m: mese) {
+    for (const auto &m: mese) {
         m.drawUI(window);
     }
 

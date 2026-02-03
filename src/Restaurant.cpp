@@ -83,11 +83,11 @@ Restaurant &Restaurant::operator=(Restaurant other) {
  *
  * Updates patience timers and checks for customers leaving.
  */
-void Restaurant::simuleaza_tura(float timp_scurs) const {
-    for (auto *client: mese) {
-        client->actualizeaza_stare(timp_scurs);
-    }
-}
+// void Restaurant::simuleaza_tura(float timp_scurs) const {
+//     for (auto *client: mese) {
+//         client->actualizeaza_stare(timp_scurs);
+//     }
+// }
 
 /**
  * @brief Seats a customer at a specific table
