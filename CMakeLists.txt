@@ -105,6 +105,12 @@ if (APPLE)
     install(FILES launcher.command DESTINATION ${DESTINATION_DIR})
 endif ()
 
+install(FILES tastatura.txt meniu.txt settings.txt DESTINATION ${DESTINATION_DIR})
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/assets")
+    install(DIRECTORY assets DESTINATION ${DESTINATION_DIR})
+endif()
+
 file(COPY tastatura.txt meniu.txt settings.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/assets" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 # copy dependent DLLs to build dir
