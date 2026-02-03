@@ -70,13 +70,13 @@ Restaurant &Restaurant::operator=(Restaurant other) {
  *
  * @throws Eroare_Restaurant_Plin if restaurant is at maximum capacity
  */
-void Restaurant::primeste_client(Client_Pinguin *client_nou) {
-    if (static_cast<int>(mese.size()) >= capacitate_maxima) {
-        delete client_nou;
-        throw Eroare_Restaurant_Plin(capacitate_maxima);
-    }
-    mese.push_back(client_nou);
-}
+// void Restaurant::primeste_client(Client_Pinguin *client_nou) {
+//     if (static_cast<int>(mese.size()) >= capacitate_maxima) {
+//         delete client_nou;
+//         throw Eroare_Restaurant_Plin(capacitate_maxima);
+//     }
+//     mese.push_back(client_nou);
+// }
 
 /**
  * @brief Simulates passage of time for all seated customers
@@ -95,17 +95,17 @@ void Restaurant::simuleaza_tura(float timp_scurs) const {
  * @throws std::out_of_range if index is invalid
  * @throws Eroare_Masa_Ocupata if restaurant is full
  */
-void Restaurant::aseaza_la_masa(int index, Client_Pinguin *client) {
-    if (index < 0 || index >= capacitate_maxima) {
-        delete client;
-        throw std::out_of_range("Index masa invalid");
-    }
-    if (static_cast<int>(mese.size()) >= capacitate_maxima) {
-        delete client;
-        throw Eroare_Masa_Ocupata(static_cast<int>(mese.size()) + 1);
-    }
-    mese.push_back(client);
-}
+// void Restaurant::aseaza_la_masa(int index, Client_Pinguin *client) {
+//     if (index < 0 || index >= capacitate_maxima) {
+//         delete client;
+//         throw std::out_of_range("Index masa invalid");
+//     }
+//     if (static_cast<int>(mese.size()) >= capacitate_maxima) {
+//         delete client;
+//         throw Eroare_Masa_Ocupata(static_cast<int>(mese.size()) + 1);
+//     }
+//     mese.push_back(client);
+// }
 
 /**
  * @brief Serves food to a customer at specified table
@@ -113,40 +113,40 @@ void Restaurant::aseaza_la_masa(int index, Client_Pinguin *client) {
  * @throws std::out_of_range if index is out of bounds
  * @throws Eroare_Actiune_Interzisa if customer has already left angry
  */
-void Restaurant::serveste_client(int index) const {
-    if (index < 0 || index >= static_cast<int>(mese.size())) {
-        throw std::out_of_range("Nu exista client la masa " + std::to_string(index));
-    }
-
-    Client_Pinguin *c = mese[index];
-
-    if (c->a_plecat_suparat()) {
-        throw Eroare_Actiune_Interzisa("Client Suparat");
-    }
-    c->esteServit(20.0f, 1.0f);
-}
+// void Restaurant::serveste_client(int index) const {
+//     if (index < 0 || index >= static_cast<int>(mese.size())) {
+//         throw std::out_of_range("Nu exista client la masa " + std::to_string(index));
+//     }
+//
+//     Client_Pinguin *c = mese[index];
+//
+//     if (c->a_plecat_suparat()) {
+//         throw Eroare_Actiune_Interzisa("Client Suparat");
+//     }
+//     c->esteServit(20.0f, 1.0f);
+// }
 
 /**
  * @brief Applies student discount promotion to all student customers
  *
  * Uses RTTI (dynamic_cast) to identify student customers specifically.
  */
-void Restaurant::aplica_promotie_studenti() const {
-    std::cout << "[Eveniment] Oferta: 10% Reducere pentru toti studentii din restaurant!\n";
-
-    bool gasit = false;
-    for (auto *client: mese) {
-        if (const auto *student = dynamic_cast<Pinguin_Student *>(client); student != nullptr) {
-            student->primeste_reducere();
-            gasit = true;
-        }
-    }
-
-    if (!gasit) {
-        std::cout << " Nu sunt studenti in restaurant momentan.\n";
-    }
-    std::cout << "\n";
-}
+// void Restaurant::aplica_promotie_studenti() const {
+//     std::cout << "[Eveniment] Oferta: 10% Reducere pentru toti studentii din restaurant!\n";
+//
+//     bool gasit = false;
+//     for (auto *client: mese) {
+//         if (const auto *student = dynamic_cast<Pinguin_Student *>(client); student != nullptr) {
+//             student->primeste_reducere();
+//             gasit = true;
+//         }
+//     }
+//
+//     if (!gasit) {
+//         std::cout << " Nu sunt studenti in restaurant momentan.\n";
+//     }
+//     std::cout << "\n";
+// }
 
 /**
  * @brief Outputs restaurant state to stream

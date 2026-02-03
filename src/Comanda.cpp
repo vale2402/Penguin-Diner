@@ -45,9 +45,9 @@ const Produs_Meniu &Comanda::getprodus_meniu() const {
  *
  * @return Table number
  */
-int Comanda::getnr_masa() const {
-    return nr_masa;
-}
+// int Comanda::getnr_masa() const {
+//     return nr_masa;
+// }
 
 /**
  * @brief Gets the order completion status

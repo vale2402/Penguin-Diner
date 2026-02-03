@@ -47,14 +47,14 @@ public:
      *
      * @param suma Amount of patience to add
      */
-    void adauga_rabdare(float suma);
+    //void adauga_rabdare(float suma);
 
     /**
      * @brief Checks if the patience timer has expired
      *
      * @return true if patience has reached zero, false otherwise
      */
-    [[nodiscard]] bool expirat() const;
+    // [[nodiscard]] bool expirat() const;
 
     /**
      * @brief Stream insertion operator for displaying timer state

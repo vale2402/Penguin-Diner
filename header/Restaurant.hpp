@@ -65,7 +65,7 @@ public:
      * @param client_nou Pointer to customer to add
      * @throws Eroare_Restaurant_Plin if restaurant is at maximum capacity
      */
-    void primeste_client(Client_Pinguin *client_nou);
+    //void primeste_client(Client_Pinguin *client_nou);
 
     /**
      * @brief Simulates passage of time for all customers
@@ -84,7 +84,7 @@ public:
      * @throws std::out_of_range if index is invalid
      * @throws Eroare_Masa_Ocupata if restaurant is full
      */
-    void aseaza_la_masa(int index, Client_Pinguin *client);
+    //void aseaza_la_masa(int index, Client_Pinguin *client);
 
     /**
      * @brief Serves food to a customer at specified table
@@ -93,14 +93,14 @@ public:
      * @throws std::out_of_range if index is invalid
      * @throws Eroare_Actiune_Interzisa if customer has already left angry
      */
-    void serveste_client(int index) const;
+    //void serveste_client(int index) const;
 
     /**
      * @brief Applies student discount promotion to all student customers
      *
      * Uses dynamic_cast to identify student customers and applies discount.
      */
-    void aplica_promotie_studenti() const;
+    //void aplica_promotie_studenti() const;
 
     /**
      * @brief Stream insertion operator for displaying restaurant state

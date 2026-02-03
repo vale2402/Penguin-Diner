@@ -33,18 +33,18 @@ bool Cronometru_Rabdare::actualizeaza(float timp_scurs) {
 /**
  * @brief Adds patience back to the timer, capped at maximum
  */
-void Cronometru_Rabdare::adauga_rabdare(float suma) {
-    rabdare_actuala = std::min(rabdare_actuala + suma, rabdare_maxima);
-}
+// void Cronometru_Rabdare::adauga_rabdare(float suma) {
+//     rabdare_actuala = std::min(rabdare_actuala + suma, rabdare_maxima);
+// }
 
 /**
  * @brief Checks if patience has run out
  *
  * @return true if patience is zero or below
  */
-bool Cronometru_Rabdare::expirat() const {
-    return rabdare_actuala <= 0;
-}
+// bool Cronometru_Rabdare::expirat() const {
+//     return rabdare_actuala <= 0;
+// }
 
 /**
  * @brief Outputs timer state to stream in readable format

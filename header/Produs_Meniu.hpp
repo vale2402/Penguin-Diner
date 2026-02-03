@@ -50,7 +50,7 @@ public:
      *
      * @return Preparation time in seconds
      */
-    [[nodiscard]] int gettimp_preparare() const;
+    //[[nodiscard]] int gettimp_preparare() const;
 
     /**
      * @brief Calculates price including a tip percentage
@@ -58,7 +58,7 @@ public:
      * @param procent_bacsis Tip percentage (e.g., 0.25 for 25%)
      * @return Total price including tip, or base price if percentage is negative
      */
-    [[nodiscard]] double pret_cu_bacsis(float procent_bacsis) const;
+    //[[nodiscard]] double pret_cu_bacsis(float procent_bacsis) const;
 
     /**
      * @brief Stream insertion operator for displaying product information

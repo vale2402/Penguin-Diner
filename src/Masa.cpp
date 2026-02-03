@@ -37,7 +37,7 @@ sf::Sprite *Masa::getClientVisual() const { return clientVisual; }
 /**
  * @brief Gets the logic object of seated customer
  */
-Client_Pinguin *Masa::getClientLogic() const { return clientLogic; }
+//Client_Pinguin *Masa::getClientLogic() const { return clientLogic; }
 
 /**
  * @brief Checks if table is occupied
@@ -181,10 +181,10 @@ void Masa::updateLogic(float dt, AssetManager<sf::Texture> &textures, int &baniT
             if (clientLogic) {
                 int notaFinala = 50;
 
-                if (auto *bogat = dynamic_cast<Pinguin_Bogat *>(clientLogic)) {
+                if (const auto *bogat = dynamic_cast<Pinguin_Bogat *>(clientLogic)) {
                     bogat->lasa_bacsis_extra();
                     notaFinala = 100;
-                } else if (auto *student = dynamic_cast<Pinguin_Student *>(clientLogic)) {
+                } else if (const auto *student = dynamic_cast<Pinguin_Student *>(clientLogic)) {
                     student->primeste_reducere();
                     notaFinala = 30;
                 } else if (dynamic_cast<Pinguin_Influencer *>(clientLogic)) {

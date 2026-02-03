@@ -49,7 +49,7 @@ public:
      *
      * @return Table number
      */
-    [[nodiscard]] int getnr_masa() const;
+    //[[nodiscard]] int getnr_masa() const;
 
     /**
      * @brief Gets the completion status of the order

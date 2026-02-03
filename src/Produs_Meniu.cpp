@@ -37,9 +37,9 @@ double Produs_Meniu::getpret() const {
  *
  * @return Preparation time in seconds
  */
-int Produs_Meniu::gettimp_preparare() const {
-    return timp_preparare;
-}
+// int Produs_Meniu::gettimp_preparare() const {
+//     return timp_preparare;
+// }
 
 /**
  * @brief Calculates price with tip percentage added
@@ -47,12 +47,12 @@ int Produs_Meniu::gettimp_preparare() const {
  * @param procent_bacsis Tip percentage (0.25 = 25%)
  * @return Total price including tip, or base price if percentage is negative
  */
-double Produs_Meniu::pret_cu_bacsis(float procent_bacsis) const {
-    if (procent_bacsis < 0.0f) {
-        return pret;
-    }
-    return pret * (1.0 + procent_bacsis);
-}
+// double Produs_Meniu::pret_cu_bacsis(float procent_bacsis) const {
+//     if (procent_bacsis < 0.0f) {
+//         return pret;
+//     }
+//     return pret * (1.0 + procent_bacsis);
+// }
 
 /**
  * @brief Outputs product details to stream

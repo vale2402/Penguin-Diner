@@ -62,7 +62,7 @@ public:
      *
      * @return Pointer to customer logic object, or nullptr if table is empty
      */
-    Client_Pinguin *getClientLogic() const;
+    //Client_Pinguin *getClientLogic() const;
 
     /**
      * @brief Checks if table has a seated customer
