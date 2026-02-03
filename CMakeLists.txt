@@ -118,6 +118,6 @@ endif ()
 
 
 include(cmake/CopyHelper.cmake)
-copy_files(FILES tastatura.txt)
+copy_files(FILES tastatura.txt meniu.txt settings.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(FILES tastatura.txt config.json DIRECTORY images sounds)
 # copy_files(DIRECTORY images sounds)
