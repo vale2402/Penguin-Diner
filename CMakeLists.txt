@@ -105,6 +105,7 @@ if (APPLE)
     install(FILES launcher.command DESTINATION ${DESTINATION_DIR})
 endif ()
 
+copy_files(FILES tastatura.txt meniu.txt settings.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy dependent DLLs to build dir
 # see https://en.sfml-dev.org/forums/index.php?topic=28580.0
 # remove this if not using audio or if using SFML 3
@@ -118,6 +119,5 @@ endif ()
 
 
 include(cmake/CopyHelper.cmake)
-copy_files(FILES tastatura.txt meniu.txt settings.txt COPY_TO_DESTINATION TARGET_NAME ${MAIN_EXECUTABLE_NAME})
 # copy_files(FILES tastatura.txt config.json DIRECTORY images sounds)
 # copy_files(DIRECTORY images sounds)
